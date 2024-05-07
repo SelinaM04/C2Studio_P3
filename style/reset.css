@@ -45,6 +45,21 @@ li {
   align-items: center; 
 }
 
+.intro h2 {
+  font-size: 80px; 
+}
+
+.intro p {
+  font-size: 20px;
+  margin-top: 10px; 
+}
+
+#dropdown {
+  display: none;
+}
+
+
+
 
 .bar-chart-example{
   display: flex;
@@ -122,6 +137,47 @@ li {
 
 }
 
+
+.recommand {
+  text-align: center; 
+  margin: 0 auto; 
+  max-width: 800px; 
+}
+
+.recommand h2 {
+  margin-bottom: 80px; 
+  font-size: 37px;
+}
+
+.recommand ul {
+  padding-left: 0; 
+}
+
+.recommand ul li {
+  margin-bottom: 10px; 
+}
+
+
+.no-recommand {
+  text-align: center; 
+  margin: 0 auto; 
+  max-width: 800px; 
+}
+
+.no-recommand h4 {
+  margin-bottom: 80px; 
+  font-size: 40px;
+}
+
+.no-recommand ul {
+  padding-left: 0; 
+}
+
+.no-recommand ul li {
+  margin-bottom: 10px; 
+}
+
+
 .borderr {
   display: flex;
   align-items: center;
@@ -133,23 +189,28 @@ li {
 
 
 .flexbox {
+  display: flex;
+  justify-content: center; 
+  align-items: center; 
   width: 100%;
   height: 100%;
 }
 
 .search {
   margin: 20px;
-}
-
-.search > h3 {
-  font-weight: normal;
+  text-align: center; 
 }
 
 .search > h1,
 .search > h3 {
-  color: rgb(0, 0, 0);
   margin-bottom: 15px;
   text-shadow: 0 1px hsl(16, 49%, 87%);
+}
+
+.search h4{ 
+  font-size: 30px;
+  position: relative;
+  right: 320px;
 }
 
 .search > div {
@@ -196,7 +257,3 @@ li {
 .search > div > input:not(:placeholder-shown) {
   width: 250px;
 }
-
-
-
-

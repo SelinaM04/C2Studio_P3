@@ -41,7 +41,6 @@ function updateChart(area) {
         const bHeight = (data.B / total) * 100;
         const aHeight = (data.A / total) * 100;
 
-        // Update the bars for each year
         const cBar = document.querySelectorAll('.c-grade')[index];
         const bBar = document.querySelectorAll('.b-grade')[index];
         const aBar = document.querySelectorAll('.a-grade')[index];
@@ -61,4 +60,16 @@ document.querySelectorAll('.buttons div').forEach(button => {
         updateChart(this.textContent);
     });
 });
+
+
+
+function toggleDropdown() {
+    var dropdown = document.getElementById("dropdown");
+    if (dropdown.style.display === "none") {
+      dropdown.style.display = "block";
+    } else {
+      dropdown.style.display = "none";
+    }
+  }
+  
 
