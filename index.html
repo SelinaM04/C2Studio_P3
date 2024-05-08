@@ -7,36 +7,46 @@
 <link rel="stylesheet" href="style/reset.css">
 </head>
 <body>
+  <div class="header">
+    <a href="https://www.instagram.com/selinayh__?igsh=Y2Fqd3U2d2ZrcmNv&utm_source=qr" class="se-instagram" target="_blank" aria-label="Visit Instagram profile"></a>
+    <a href="mailto:may162@newschool.edu" class="se-mail" aria-label="Send Email"></a>
+</div>
+
+
 <div class="menu">
     <div class="border"></div>
     <h1>MENU</h1>
     <div class="border"></div>
 
     <ul>
-        <li>Starters</li>
-        <li>Entrées</li>
-        <li>Sides</li>
-        <li>Sweet Endings</li>
+      <li><a href="#intro">Starters</a></li>
+      <li><a href="#recommand">Entrées</a></li>
+      <li><a href="#flexbox">Sides</a></li>
+      <li><a href="#summary">Sweet Endings</a></li>
+  </ul>
     </ul>
 </div>
 
-<div class="intro">
-  <h2 onclick="toggleDropdown()">NYC Resturaunt Insights</h2>
-  <div id="dropdown" style="display: none;">
-    <p>NYC Restaurant Insights" is your premier destination for navigating New York City's culinary scene with confidence. Through meticulous analysis of restaurant inspection data from 2021 to 2024, we unveil trends and grade changes across various cuisines. Our platform offers strategic recommendations for the top-performing cuisine types, ensuring informed dining choices. With our intuitive search function, users can effortlessly locate restaurants in their vicinity by zip code, accessing detailed information on inspection grades and violations. Committed to professionalism and transparency, we empower diners to make informed decisions, enhancing their dining experiences across the city's diverse culinary landscape.</p>
-    <div class="borderr"></div>
+
+
+<div class="intro" id="intro">
+  <h2>NYC Resturaunt Insights</h2>
+  <div class="dropdown">
+    <p>"NYC Restaurant Insights" is your premier destination for navigating New York City's culinary scene with confidence. Through meticulous analysis of restaurant inspection data from 2021 to 2024, we unveil trends and grade changes across various cuisines. Our platform offers strategic recommendations for the top-performing cuisine types, ensuring informed dining choices. With our intuitive search function, users can effortlessly locate restaurants in their vicinity by zip code, accessing detailed information on inspection grades and violations. Committed to professionalism and transparency, we empower diners to make informed decisions, enhancing their dining experiences across the city's diverse culinary landscape.</p>
+
   </div>
 </div>
 
 
 <section class="bar-chart-example">
-    <div class="buttons">
-        <div>American</div>
-        <div>Chinese</div>
-        <div>Mexican</div>
-        <div>Caribbean</div>
-        <div>Japanese</div>
-    </div>
+  <div class="buttons">
+    <div onclick="updateChart('American')"><a>American</a></div>
+    <div onclick="updateChart('Chinese')"><a>Chinese</a></div>
+    <div onclick="updateChart('Mexican')"><a>Mexican</a></div>
+    <div onclick="updateChart('Caribbean')"><a>Caribbean</a></div>
+    <div onclick="updateChart('Japanese')"><a>Japanese</a></div>
+</div>
+
     <div class="chart-wrapper">
       <div class="year" id="2020">
         <div class="c-grade">C</div>
@@ -68,36 +78,36 @@
 
   <div class="text_graph">
     <p>The data provided gives us a glimpse, into the restaurant inspection results for types of cuisine in New York City spanning from 2021 to 2024. The grades. A, B and C. Signify the degree of adherence to health regulations. Grade A indicates compliance with no critical violations Grade B suggests moderate compliance while Grade C points out significant regulatory infractions.</p>
-    <p>In terms of cuisine categories American eateries consistently upheld compliance levels with Grade A percentages exceeding 80% until a noticeable decline to 60.4% in 2024. This decrease signifies a drop in adherence accompanied by corresponding rises in Grades B and C. On the contrary Chinese cuisine started off strong with 79.7% attaining an A grade in 2021 but witnessed a decline over the years to reach 42.5% by 2024. This indicates a decrease in adherence or stricter enforcement of health regulations.</p>
-    <p>Mexican cuisine saw fluctuating rates of compliance beginning at a 82.73% Grade A in 2021 before dropping to 47.68% by 2024. This decline was coupled with increases in Grades B and C suggesting emerging challenges regarding health standards or potential shifts in inspection rigor.</p>
-    <p>Similarly Caribbean cuisine followed this declining trend, in compliance levels – starting at a 74% achieving Grade A in 2021 but dwindling to 44.1% by the year 2024. Both Grade B and C experienced an uptick indicating a trend of decreasing adherence or heightened regulatory oversight.</p>
-    <p>Japanese cuisine, which began strongly in 2021 with 87.71% receiving Grade A also exhibited a decline, over time dropping to 40.73% by 2024. Notably the rise in grades was less drastic compared to types of cuisine hinting at a more steady compliance in comparison.</p>
+    <p>In terms of cuisine categories American eateries consistently upheld compliance levels with Grade A percentages exceeding 80% until a noticeable decline to <a>60.4%</a> in 2024. This decrease signifies a drop in adherence accompanied by corresponding rises in Grades B and C. On the contrary Chinese cuisine started off strong with <a>79.7%</a> attaining an A grade in 2021 but witnessed a decline over the years to reach <a>42.5%</a> by 2024. This indicates a decrease in adherence or stricter enforcement of health regulations.</p>
+    <p>Mexican cuisine saw fluctuating rates of compliance beginning at a <a>82.73%</a> Grade A in 2021 before dropping to <a>47.68% </a>by 2024. This decline was coupled with increases in Grades B and C suggesting emerging challenges regarding health standards or potential shifts in inspection rigor.</p>
+    <p>Similarly Caribbean cuisine followed this declining trend, in compliance levels – starting at a <a>74%</a> achieving Grade A in 2021 but dwindling to <a>44.1%</a> by the year 2024. Both Grade B and C experienced an uptick indicating a trend of decreasing adherence or heightened regulatory oversight.</p>
+    <p>Japanese cuisine, which began strongly in 2021 with <a>87.71%</a> receiving Grade A also exhibited a decline, over time dropping to <a>40.73%</a> by 2024. Notably the rise in grades was less drastic compared to types of cuisine hinting at a more steady compliance in comparison.</p>
     <p>In general the data suggests a pattern of diminishing compliance across all styles with an increasing number of eateries receiving lower grades as the years went by. This could signify either a drop in standards, at restaurants or stricter health inspection criteria enforced by authorities.</p>
 
     <div class="borderr"></div>
 </div>
-<div class="recommand">
-    <h2>Top Two Most Recommand Cuisine in NYC</h2>
+<div class="recommand" id="recommand">
+    <h2>Top Two Most Recommend Cuisine in NYC</h2>
     <ul>
         <li>American</li>
         <li>Japanese</li>
     </ul>
-    <p>The top two cuisines that recommanded are American and Japanese. American food has consistently maintained a level of adherence, to health standards with Grade A percentages above 80% until the year 2024 despite a slight drop in that particular year. On the hand Japanese cuisine also begins on a note with the highest initial Grade A percentage (87.71% in 2021). Although there is a decline over time the increase in grades is not as significant compared to cuisines indicating a relatively steady level of compliance.</p>
+    <p>The top two cuisines that recommended are American and Japanese. American food has consistently maintained a level of adherence, to health standards with Grade A percentages above 80% until the year 2024 despite a slight drop in that particular year. On the hand Japanese cuisine also begins on a note with the highest initial Grade A percentage (87.71% in 2021). Although there is a decline over time the increase in grades is not as significant compared to cuisines indicating a relatively steady level of compliance.</p>
     <div class="borderr"></div>
     
   </div>
 <div class="no-recommand">
-    <h4>Top Two least recommand cuisine in NYC</h4>
+    <h4>Top Two least recommend cuisine in NYC</h4>
     <ul>
         <li>Chinese</li>
         <li>Caribbean</li>
     </ul>
-    <p>The two types of least recommand cuisines are Chinese and Caribbean . Chinese dishes have seen a decrease in meeting health standards going from a 79.7% Grade A rating in 2021 to 42.5% by 2024 making it the most substantial drop across all categories. Similarly Caribbean cuisine has also experienced a decline in health compliance starting at a Grade A of 74%, in 2021 and falling to 44.1% by 2024 with instances of Grades B and C suggesting emerging health concerns or stricter inspection criteria. </p>
+    <p>The two types of least recommend cuisines are Chinese and Caribbean . Chinese cuisine have seen a decrease in meeting health standards going from a 79.7% Grade A rating in 2021 to 42.5% by 2024 making it the most substantial drop across all categories. Similarly Caribbean cuisine has also experienced a decline in health compliance starting at a Grade A of 74%, in 2021 and falling to 44.1% by 2024 with instances of Grades B and C suggesting emerging health concerns or stricter inspection criteria. </p>
     <div class="borderr"></div>
 
 </div>
 
-<div class="flexbox">
+<div class="flexbox" id="flexbox">
   <div class="search">
     <h1>Zip Code</h1>
     <h5>Click the icon to see the grade of the restaurant near you</h5>
@@ -110,12 +120,20 @@
 </div>
 
 
-<div class="summary">
+<div class="summary" id="summary">
   <div class="borderr"></div>
-  <h1>Summary</h1>
-  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum</p>
+  <h2>Sweet Endings</h2>
+  <p>"NYC Restaurant Insights" offers an user friendly platform to explore the culinary scene of New York City. It provides an analysis of restaurant inspection findings showcasing trends and changes, in grades for cuisines from 2021 to 2024. The website includes features like bar charts that visually represent inspection grades over time across cuisines helping diners make informed choices based on adherence to health standards.</p>
+  <p>The site is organized into sections for navigation; Starters (introductory insights) Entrées (top cuisine recommendations) Sides (search by zip code) and Sweet Endings (summary and conclusions). Each section is accessible, through a menu bar making it simple for visitors to move seamlessly through the content.</p>
   <div class="borderr"></div>
 </div>
+
+<footer>
+  <small>
+    Copyright © 2023 NYC Resturaunt Insights myh. All Rights Reserved.
+  </small>
+</footer>
+</body>
 
 
 

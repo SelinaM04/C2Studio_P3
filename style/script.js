@@ -1,3 +1,14 @@
+document.querySelectorAll('.menu a').forEach(anchor => {
+    anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        const targetId = this.getAttribute('href');
+        document.querySelector(targetId).scrollIntoView({
+            behavior: 'smooth'
+        });
+    });
+});
+
+
 const chartData = {
     "American": [
         { "C": 6.3, "B": 3.5, "A": 88 },
@@ -54,23 +65,63 @@ function updateChart(area) {
         aBar.textContent = `A - ${data.A}%`;
     });
 }
+document.addEventListener('DOMContentLoaded', function() {
+    const buttons = document.querySelectorAll('.buttons div a');
 
-document.querySelectorAll('.buttons div').forEach(button => {
-    button.addEventListener('click', function() {
-        updateChart(this.textContent);
+    buttons.forEach(button => {
+        button.addEventListener('click', function() {
+            buttons.forEach(b => b.classList.remove('active')); 
+            this.classList.add('active'); 
+            updateChart(this.textContent.trim());
+        });
     });
 });
 
 
+document.querySelectorAll('.buttons div a').forEach(button => {
+    button.addEventListener('click', function() {
+        document.querySelectorAll('.buttons div a').forEach(b => b.classList.remove('active')); 
+        this.classList.add('active'); 
+        const area = this.textContent.trim();
+        const dataSets = chartData[area];
+        dataSets.forEach((data, index) => {
+            const total = data.C + data.B + data.A;
+            const cHeight = (data.C / total) * 100;
+            const bHeight = (data.B / total) * 100;
+            const aHeight = (data.A / total) * 100;
 
-function toggleDropdown() {
-    var dropdown = document.getElementById("dropdown");
-    if (dropdown.style.display === "none") {
-      dropdown.style.display = "block";
-    } else {
-      dropdown.style.display = "none";
-    }
-  }
+            const cBar = document.querySelectorAll('.c-grade')[index];
+            const bBar = document.querySelectorAll('.b-grade')[index];
+            const aBar = document.querySelectorAll('.a-grade')[index];
+
+            animateHeightChange(cBar, cHeight);
+            animateHeightChange(bBar, bHeight);
+            animateHeightChange(aBar, aHeight);
+
+            cBar.textContent = `C - ${data.C}%`;
+            bBar.textContent = `B - ${data.B}%`;
+            aBar.textContent = `A - ${data.A}%`;
+        });
+    });
+});
+
+function animateHeightChange(element, newHeight) {
+    const currentHeight = parseFloat(element.style.height) || 0;
+    const frameRate = 25;
+    const frame = (newHeight - currentHeight) / frameRate;
+    let currentFrame = 0;
+
+    const intervalId = setInterval(() => {
+        if (currentFrame < frameRate) {
+            element.style.height = `${parseFloat(element.style.height) + frame}%`;
+            currentFrame++;
+        } else {
+            clearInterval(intervalId);
+            element.style.height = `${newHeight}%`; 
+        }
+    }, 25);
+}
+var btn = $('#button');
 
 
 
