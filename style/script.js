@@ -121,7 +121,7 @@ function animateHeightChange(element, newHeight) {
         }
     }, 25);
 }
-var btn = $('#button');
+
 
 
 
