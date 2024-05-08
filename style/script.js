@@ -71,5 +71,66 @@ function toggleDropdown() {
       dropdown.style.display = "none";
     }
   }
-  
 
+
+
+  const APP_TOKEN = 'I6P0LofetlBLmwW5IbfTd2iye';  
+  const DATASET_IDENTIFIER = '43nn-pn8j';  
+  const LIMIT = 10; 
+  
+  function searchByZipCode() {
+      const zipInput = document.querySelector('.search input');
+      const zipCode = zipInput.value.trim();
+      if (!zipCode) {
+          alert("Please enter a ZIP code.");
+          return;
+      }
+  
+      const url = `https://data.cityofnewyork.us/resource/${DATASET_IDENTIFIER}.json?$$app_token=${APP_TOKEN}&$limit=${LIMIT}&zipcode=${zipCode}`;
+  
+      fetch(url)
+          .then(response => {
+              if (!response.ok) {
+                  throw new Error(`HTTP error! status: ${response.status}`);
+              }
+              return response.json();
+          })
+          .then(data => {
+              displayResults(data);
+          })
+          .catch(error => {
+              console.error('Error fetching data:', error);
+              alert(`Failed to fetch data: ${error.message}`);
+          });
+  }
+  
+  function displayResults(data) {
+    const resultsContainer = document.getElementById('resultsContainer');  // Target the specific results container
+    let resultsHTML = '';
+
+    if (data.length === 0) {
+        resultsHTML += '<p>No results found for this ZIP code.</p>';
+    } else {
+        resultsHTML += '<div style="text-align: left;">';
+        data.forEach((restaurant, index) => {
+            if (['A', 'B', 'C'].includes(restaurant.grade)) {
+                resultsHTML += `<div>
+                    <h5>- ${restaurant.dba} (Grade: ${restaurant.grade})</h5>
+                    <p>Address: ${restaurant.building} ${restaurant.street}, ${restaurant.boro}</p>
+                    <p>Cuisine: ${restaurant.cuisine_description}</p>
+                    <p>Last Inspection Date: ${restaurant.inspection_date}</p>
+                    <p>Violations: ${restaurant.violation_description || 'No violations reported'}</p>
+                </div>`;
+            }
+        });
+        resultsHTML += '</div>';
+    }
+
+    resultsContainer.innerHTML = resultsHTML; 
+}
+
+document.querySelector('.search input').addEventListener('keyup', function(event) {
+    if (event.key === 'Enter') {
+        searchByZipCode();
+    }
+});
