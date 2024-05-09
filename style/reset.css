@@ -230,6 +230,7 @@ a:hover::before, a.active::before {
 }
 
 
+
 .chart-wrapper div div {
   color: white;
   font-size: 18px;  
@@ -267,13 +268,14 @@ a:hover::before, a.active::before {
   margin-right: 20px;  
   text-align: justify;  
   padding: 20px;  
+  max-width: 700x;
 }
 
 
 .recommand {
   text-align: center; 
   margin: 0 auto; 
-  max-width: 800px; 
+  max-width: 700px; 
 }
 
 .recommand h2 {
@@ -308,6 +310,7 @@ a:hover::before, a.active::before {
 .no-recommand ul li {
   margin-bottom: 10px; 
 }
+
 
 
 .borderr {
