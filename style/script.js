@@ -1,3 +1,39 @@
+var cursor = document.querySelector('.cursor');
+var cursorinner = document.querySelector('.cursor2');
+var a = document.querySelectorAll('a');
+
+document.addEventListener('mousemove', function(e){
+  var x = e.clientX;
+  var y = e.clientY;
+  cursor.style.transform = `translate3d(calc(${e.clientX}px - 50%), calc(${e.clientY}px - 50%), 0)`
+});
+
+document.addEventListener('mousemove', function(e){
+  var x = e.clientX;
+  var y = e.clientY;
+  cursorinner.style.left = x + 'px';
+  cursorinner.style.top = y + 'px';
+});
+
+document.addEventListener('mousedown', function(){
+  cursor.classList.add('click');
+  cursorinner.classList.add('cursorinnerhover')
+});
+
+document.addEventListener('mouseup', function(){
+  cursor.classList.remove('click')
+  cursorinner.classList.remove('cursorinnerhover')
+});
+
+a.forEach(item => {
+  item.addEventListener('mouseover', () => {
+    cursor.classList.add('hover');
+  });
+  item.addEventListener('mouseleave', () => {
+    cursor.classList.remove('hover');
+  });
+})
+
 document.querySelectorAll('.menu a').forEach(anchor => {
     anchor.addEventListener('click', function (e) {
         e.preventDefault();
@@ -8,7 +44,26 @@ document.querySelectorAll('.menu a').forEach(anchor => {
     });
 });
 
-
+document.addEventListener("DOMContentLoaded", function() {
+    const introHeading = document.querySelector('.intro h2');
+    
+    var observer = new IntersectionObserver(function(entries) {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          introHeading.style.opacity = 1;
+          introHeading.style.transform = 'translateX(0)';
+          introHeading.style.transition = 'transform 1s ease-out, opacity 1s ease-out';
+        } else {
+          // Reset the style when the element is not visible
+          introHeading.style.opacity = 0;
+          introHeading.style.transform = 'translateX(100%)';
+        }
+      });
+    }, { threshold: [1] }); // Adjust threshold to 1 for full visibility
+  
+    observer.observe(document.querySelector(".intro"));
+  });
+  
 const chartData = {
     "American": [
         { "C": 6.3, "B": 3.5, "A": 88 },
@@ -122,6 +177,26 @@ function animateHeightChange(element, newHeight) {
     }, 25);
 }
 
+document.addEventListener("DOMContentLoaded", function() {
+    const recommandHeading = document.querySelector('.recommand h2');
+    
+    var recommandObserver = new IntersectionObserver(function(entries) {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          recommandHeading.style.opacity = 1;
+          recommandHeading.style.transform = 'translateX(0)';
+          recommandHeading.style.transition = 'transform 1s ease-out, opacity 1s ease-out';
+        } else {
+          // Reset the style when the element is not visible
+          recommandHeading.style.opacity = 0;
+          recommandHeading.style.transform = 'translateX(-100%)';
+        }
+      });
+    }, { threshold: [0.5] }); // Adjust threshold based on when you want the animation to trigger
+  
+    recommandObserver.observe(document.querySelector(".recommand"));
+  });
+  
 
 
 
@@ -184,4 +259,25 @@ document.querySelector('.search input').addEventListener('keyup', function(event
     if (event.key === 'Enter') {
         searchByZipCode();
     }
+});
+
+document.addEventListener("DOMContentLoaded", function() {
+    const summaryHeadingSpans = document.querySelectorAll('.summary h2 span');
+    const observer = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                summaryHeadingSpans.forEach((span, index) => {
+                    span.style.animation = `dropIn 0.5s ease-out ${index * 0.1}s forwards`;
+                });
+            } else {
+                summaryHeadingSpans.forEach(span => {
+                    // Properly reset styles to initial state when not visible
+                    span.style.opacity = "0";
+                    span.style.transform = "translateY(-50px)";
+                });
+            }
+        });
+    }, { threshold: 0.5 });
+
+    observer.observe(document.querySelector('.summary'));
 });
