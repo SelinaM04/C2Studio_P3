@@ -434,16 +434,17 @@ a:hover::before, a.active::before {
   filter: drop-shadow(0 1px hsl(0, 20%, 79%));
 }
 
-.search > div:after {
-  content: "";
-  background: hsl(0, 69%, 34%);
-  width: 4px;
-  height: 20px;
-  position: absolute;
-  top: 40px;
-  right: 2px;
-  transform: rotate(135deg);
-}
+.search > .search-icon:after {
+    content: "";
+    background: hsl(0, 69%, 34%);
+    width: 4px;
+    height: 20px;
+    position: absolute;
+    top: 40px;
+    right: 1px;
+    transform: rotate(135deg);
+  }
+  
 
 .search > div > input {
     color: #ab3d22;
