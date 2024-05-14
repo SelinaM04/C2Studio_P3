@@ -135,6 +135,18 @@ h1 {
     top: 20px;
     margin: 0;
 }
+
+
+.menu-icon2 {
+  width: 150px;  
+  height: 130px;  
+  position: absolute;  
+  top: 5%;  
+  right:18%;  
+  transform: translate(-50%, 20px) rotate(10deg);  
+}
+
+
 .border{
     width: 20%;
     margin: 0 auto;
@@ -161,6 +173,36 @@ li {
   color: hsl(0, 11%, 69%); 
   text-decoration: underline;  
 }
+
+.menu-icon {
+  width: 50px; 
+  height: 50px; 
+  position: absolute; 
+  display: none; 
+}
+
+.menu li {
+  position: relative; 
+}
+
+.menu li:hover .menu-icon.left {
+  display: block; 
+  width: 45px;
+  height: 45px;
+  transform: translateX(-110%); 
+  top: 10%;
+  left: 44%;
+}
+
+.menu li:hover .menu-icon.right {
+  display: block;
+  width: 45px;
+  height: 45px;
+  transform: translateX(110%);
+  top: 10%;
+  right: 44%; 
+}
+
 
 .intro {
   display: flex;
@@ -315,17 +357,17 @@ a:hover::before, a.active::before {
 
 .column-layout {
   display: flex;
-  column-gap: 40px; /* Space between columns */
+  column-gap: 40px; 
 }
 
 .text-column {
   flex: 1;
   padding: 10px;
-  border-left: 1px solid #f3d6d5; /* Vertical border */
+  border-left: 1px solid #f3d6d5; 
 }
 
 .text-column:first-child {
-  border-left: none; /* No border for the first column */
+  border-left: none; 
 }
 
 
@@ -357,12 +399,24 @@ a:hover::before, a.active::before {
 }
 
 .recommand ul {
+  list-style-type: none; 
   padding-left: 0; 
 }
 
-.recommand ul li {
-  margin-bottom: 10px; 
+.recommand li {
+  margin-bottom: 10px;
+  font-size: 30px; 
+  line-height: 1.5; 
+  position: relative;
 }
+
+.recommand .list-icon {
+  width: 60px; 
+  height: 25px;
+  position: absolute;
+  left: 90px; 
+}
+
 
 
 .no-recommand {
@@ -377,11 +431,22 @@ a:hover::before, a.active::before {
 }
 
 .no-recommand ul {
+  list-style-type: none; 
   padding-left: 0; 
 }
 
-.no-recommand ul li {
-  margin-bottom: 10px; 
+.no-recommand li {
+  margin-bottom: 10px;
+  font-size: 30px; 
+  line-height: 1.5; 
+  position: relative;
+}
+
+.no-recommand .list-icon {
+  width: 60px; 
+  height: 25px;
+  position: absolute;
+  left: 130px; 
 }
 
 
@@ -480,6 +545,21 @@ a:hover::before, a.active::before {
   width: 80%;        
   margin: 0 auto;     
   padding: 20px;      
+}
+
+.zip-code-icon {
+  height: 400px;
+  width: 400px; 
+  position: absolute;
+  left: 3%;
+}
+
+.summary-icon {
+  height: 100px;
+  width: 100px; 
+  position: absolute;
+  left: 30%;
+
 }
 
 .summary h2 {
