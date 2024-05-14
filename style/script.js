@@ -284,19 +284,18 @@ document.addEventListener('DOMContentLoaded', function() {
       window.requestAnimationFrame(step);
     }
   
-    // Set up an IntersectionObserver to trigger the animation when entering the view
     const observer = new IntersectionObserver(function(entries, observer) {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
-          slideInElement(icon);  // Trigger the animation
-          observer.unobserve(entry.target); // Optional: Unobserve after animating if you only want it to trigger once
+          slideInElement(icon);  
+          observer.unobserve(entry.target); 
         }
       });
     }, {
-      threshold: 0.5  // Trigger when 50% of the target is visible
+      threshold: 0.5  
     });
   
-    observer.observe(zipCodeSection);  // Observe the zip code section
+    observer.observe(zipCodeSection);  
   });
   
   
