@@ -260,6 +260,47 @@ document.querySelector('.search input').addEventListener('keyup', function(event
     }
 });
 
+document.addEventListener('DOMContentLoaded', function() {
+    const icon = document.querySelector('.zip-code-icon');
+    const zipCodeSection = document.querySelector('.search'); // Assuming '.search' is the container for the zip code section
+  
+    function slideInElement(element) {
+      let start = null;
+      const initialPosition = -100; // Start off-screen to the left
+      const endPosition = 0; // End position at the initial spot
+  
+      function step(timestamp) {
+        if (!start) start = timestamp;
+        const progress = timestamp - start;
+        const currentPosition = Math.min(initialPosition + progress / 10, endPosition);
+  
+        element.style.transform = `translateX(${currentPosition}px)`;
+  
+        if (currentPosition < endPosition) {
+          window.requestAnimationFrame(step);
+        }
+      }
+  
+      window.requestAnimationFrame(step);
+    }
+  
+    // Set up an IntersectionObserver to trigger the animation when entering the view
+    const observer = new IntersectionObserver(function(entries, observer) {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          slideInElement(icon);  // Trigger the animation
+          observer.unobserve(entry.target); // Optional: Unobserve after animating if you only want it to trigger once
+        }
+      });
+    }, {
+      threshold: 0.5  // Trigger when 50% of the target is visible
+    });
+  
+    observer.observe(zipCodeSection);  // Observe the zip code section
+  });
+  
+  
+  
 document.addEventListener("DOMContentLoaded", function() {
     const summaryHeadingSpans = document.querySelectorAll('.summary h2 span');
     const observer = new IntersectionObserver(entries => {
